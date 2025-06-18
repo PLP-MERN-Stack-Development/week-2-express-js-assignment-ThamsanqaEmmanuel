@@ -7,15 +7,14 @@ This project is a RESTful API built with Express.js to manage a list of products
 
 ##  Project Structure
 ```
-
+Products.js
 server.js
 routes 
   └── productRoutes.js
 middleware/
     ├── auth.js
     ├── errorHandler.js
-    ├── logger.js
-    └── validateProduct.js
+    ├── logger.js  
 .env.example
 README.md
 ```
@@ -32,6 +31,7 @@ README.md
 git clone https://github.com/PLP-MERN-Stack-Developmentweek-2-express-js-assignment-ThamsanqaEmmanuel.git
 cd week-2-express-js-assignment-ThamsanqaEmmanuel
 npm install express
+npm install mongoose
 
 
 ### Environment Variables
@@ -57,23 +57,21 @@ For every request:
 
 ##  API Endpoints
 
-### Root
-- `GET /` → Welcome message
 
 ### Products
-- `GET /api/products` → List all products
+- `GET /Products` → List all products
 - Optional query parameters:
 - `category` - filter by category
 - `name` - search by name (partial)
 - `page` and `limit` - for pagination
 
-- `GET /api/products/:id` → Get product by ID
-- `POST /api/products` → Create new product
-- `PUT /api/products/:id` → Update product by ID
-- `DELETE /api/products/:id` → Delete product by ID
+- `GET /Products/:id` → Get product by ID
+- `POST /Products` → Create new product
+- `PUT /Products/:id` → Update product by ID
+- `DELETE /Products/:id` → Delete product by ID
 
 ### Stats
-- `GET /api/products/stats` → Get product count by category
+- `GET /Products/stats` → Get product count by category
 
 ---
 
@@ -81,8 +79,7 @@ For every request:
 
 ### Create Product (POST)
 ```
-POST /api/products
-Headers: { "x-api-key": "12345" }
+POST /Products
 Body:
 {
   "name": "Mouse",
@@ -95,17 +92,17 @@ Body:
 
 ### Filter by Category (GET)
 ```
-GET /api/products?category=electronics
+GET /Products?category=electronics
 ```
 
 ### Paginate (GET)
 ```
-GET /api/products?page=1&limit=2
+GET /Products?page=1&limit=2
 ```
 
 ### Product Stats (GET)
 ```
-GET /api/products/stats
+GET /Products/stats
 ```
 
 ---

@@ -1,12 +1,6 @@
 module.exports = function (req, res, next) {
-  const { name, description, price, category, inStock } = req.body;
-  if (
-    typeof name !== 'string' ||
-    typeof description !== 'string' ||
-    typeof price !== 'number' ||
-    typeof category !== 'string' ||
-    typeof inStock !== 'boolean'
-  ) {
+  const { name, description, price, category } = req.body;
+  if (!name || typeof name !== 'string'  || !description == undefined || !price || typeof price !== 'number' || !category === undefined) {
     return res.status(400).json({ error: 'Invalid product data' });
   }
   next();
